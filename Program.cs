@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,6 +21,17 @@ namespace PubSubGUI
             //Application.SetCompatibleTextRenderingDefault(false);
             Console.WriteLine("Press Enter to close.");
             string input = Console.ReadLine();
+            if(input == "GUI")
+            {
+                new Thread(PublisherForm).Start();
+            }
+        }
+
+        private static void PublisherForm()
+        {
+            PublisherControls publisherControls = new PublisherControls();
+            publisherControls.addPublisher();
+            PublisherGUI publisherGUI = new PublisherGUI(publisherControls);
         }
     }
 }

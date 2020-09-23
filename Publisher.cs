@@ -3,7 +3,7 @@ using WebSocketSharp;
 
 namespace PubSubGUI
 {
-    class Publisher
+    public class Publisher
     {
         private WebSocket webSocket;
         private bool serverClosed;

@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace PubSubGUI
 {
-    class PublisherControls
+    public class PublisherControls
     {
         private List<Publisher> publishers;
 
@@ -52,6 +52,15 @@ namespace PubSubGUI
         public bool closeConnection(int publishersIndex)
         {
             return publishers[publishersIndex].closeConnection();
+        }
+
+        public bool closeConnection()
+        {
+            foreach(Publisher pb in publishers)
+            {
+                pb.closeConnection();
+            }
+            return true;
         }
 
         public bool inputHandler(string[] inputs)
